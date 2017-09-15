@@ -44,7 +44,7 @@ public class DataSourceConfig {
         emfb.setJpaVendorAdapter(vendorAdapter);
         emfb.setJpaProperties(getHibernateProperties());
 
-        emfb.setPackagesToScan("com.erika.jasp.entity");
+        emfb.setPackagesToScan("entity");
         return emfb;
     }
 

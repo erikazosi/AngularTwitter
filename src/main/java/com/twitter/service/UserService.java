@@ -13,10 +13,10 @@ public interface UserService {
 
     List<User> findAll();
 
-    UserDTO findById(int id);
+    UserDTO findById(long id);
 
     void updateUser(UserDTO userDTO);
 
-    void deleteUserById(int id);
+    void deleteUserById(long id);
 
 }

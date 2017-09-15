@@ -37,11 +37,21 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+    @Override
+    public UserDTO findById(long id) {
+        return null;
+    }
+
     public UserDTO findById(int id) {
         return null;
     }
 
     public void updateUser(UserDTO userDTO) {
+
+    }
+
+    @Override
+    public void deleteUserById(long id) {
 
     }
 
