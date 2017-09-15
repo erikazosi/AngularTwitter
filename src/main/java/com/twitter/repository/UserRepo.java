@@ -1,6 +1,6 @@
-package repository;
+package com.twitter.repository;
 
-import entity.User;
+import com.twitter.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

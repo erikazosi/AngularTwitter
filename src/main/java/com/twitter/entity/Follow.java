@@ -1,4 +1,4 @@
-package entity;
+package com.twitter.entity;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -1,8 +1,9 @@
-package service;
+package com.twitter.service;
 
-import dto.StoryDTO;
-import dto.UserDTO;
-import entity.Story;
+import com.twitter.dto.StoryDTO;
+import com.twitter.dto.UserDTO;
+import com.twitter.entity.Story;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 

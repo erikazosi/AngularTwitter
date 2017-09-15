@@ -1,4 +1,4 @@
-package core;
+package com.twitter.core;
 
 //Copyright (c) 2006 Damien Miller <djm@mindrot.org>
 //

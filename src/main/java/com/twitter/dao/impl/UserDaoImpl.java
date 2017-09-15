@@ -1,12 +1,12 @@
-package dao.impl;
+package com.twitter.dao.impl;
 
-import dao.UserDao;
-import dto.UserDTO;
-import entity.User;
+import com.twitter.dao.UserDao;
+import com.twitter.dto.UserDTO;
+import com.twitter.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import repository.UserRepo;
-import utils.UserUtils;
+import com.twitter.repository.UserRepo;
+import com.twitter.utils.UserUtils;
 
 import java.util.List;
 

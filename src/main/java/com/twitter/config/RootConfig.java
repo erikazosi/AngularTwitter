@@ -1,11 +1,11 @@
-package config;
+package com.twitter.config;
 
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@ComponentScan(basePackages = "config")
+@ComponentScan(basePackages = "com.twitter")
 
 public class RootConfig {
 }

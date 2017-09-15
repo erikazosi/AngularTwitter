@@ -1,8 +1,8 @@
-package core;
+package com.twitter.core;
 
-import dto.LoginDTO;
-import dto.UserDTO;
-import requestDTO.UserRequestDTO;
+import com.twitter.dto.LoginDTO;
+import com.twitter.dto.UserDTO;
+import com.twitter.requestDTO.UserRequestDTO;
 import org.springframework.stereotype.Component;
 
 @Component

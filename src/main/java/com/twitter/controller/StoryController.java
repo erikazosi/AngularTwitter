@@ -1,15 +1,15 @@
-package controller;
+package com.twitter.controller;
 
-import dto.UserDTO;
+import com.twitter.dto.UserDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import service.StoryService;
-import service.UserService;
-import service.impl.StoryServiceImpl;
-import service.impl.UserServiceImpl;
+import com.twitter.service.StoryService;
+import com.twitter.service.UserService;
+import com.twitter.service.impl.StoryServiceImpl;
+import com.twitter.service.impl.UserServiceImpl;
 
 @Controller
 public class StoryController {

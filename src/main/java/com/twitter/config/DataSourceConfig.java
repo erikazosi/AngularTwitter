@@ -1,4 +1,4 @@
-package config;
+package com.twitter.config;
 
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = {"repository"})
+@EnableJpaRepositories(basePackages = {"com.twitter.repository"})
 
 public class DataSourceConfig {
 
@@ -44,7 +44,7 @@ public class DataSourceConfig {
         emfb.setJpaVendorAdapter(vendorAdapter);
         emfb.setJpaProperties(getHibernateProperties());
 
-        emfb.setPackagesToScan("entity");
+        emfb.setPackagesToScan("com/twitter/entity");
         return emfb;
     }
 

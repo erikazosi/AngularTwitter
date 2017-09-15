@@ -8,9 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
-    <title>$Title$</title>
+    <title>Home</title>
 </head>
-<body>
-$END$
+<body ng-app="angularTwitter">
+<button ng-click="">Login</button>
+
 </body>
 </html>

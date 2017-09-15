@@ -1,4 +1,4 @@
-package dto;
+package com.twitter.dto;
 
 
 import lombok.Getter;

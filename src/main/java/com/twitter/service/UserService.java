@@ -1,8 +1,9 @@
-package service;
+package com.twitter.service;
 
-import dto.LoginDTO;
-import dto.UserDTO;
-import entity.User;
+
+import com.twitter.dto.LoginDTO;
+import com.twitter.dto.UserDTO;
+import com.twitter.entity.User;
 
 import java.util.List;
 

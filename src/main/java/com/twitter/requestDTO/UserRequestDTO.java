@@ -1,4 +1,4 @@
-package requestDTO;
+package com.twitter.requestDTO;
 
 
 import lombok.Getter;

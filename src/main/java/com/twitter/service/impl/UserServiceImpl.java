@@ -1,15 +1,17 @@
-package service.impl;
+package com.twitter.service.impl;
 
-import core.Hash;
-import dao.UserDao;
-import dto.LoginDTO;
-import dto.UserDTO;
-import entity.User;
-import service.UserService;
-import utils.UserUtils;
+import com.twitter.core.Hash;
+import com.twitter.dao.UserDao;
+import com.twitter.dto.LoginDTO;
+import com.twitter.dto.UserDTO;
+import com.twitter.entity.User;
+import com.twitter.service.UserService;
+import com.twitter.utils.UserUtils;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService {
 
 

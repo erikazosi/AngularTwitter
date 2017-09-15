@@ -1,7 +1,7 @@
-package dao;
+package com.twitter.dao;
 
-import dto.UserDTO;
-import entity.User;
+import com.twitter.dto.UserDTO;
+import com.twitter.entity.User;
 
 import java.util.List;
 

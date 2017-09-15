@@ -1,12 +1,14 @@
-package service.impl;
+package com.twitter.service.impl;
 
-import dto.StoryDTO;
-import dto.UserDTO;
-import entity.Story;
-import service.StoryService;
+import com.twitter.dto.StoryDTO;
+import com.twitter.dto.UserDTO;
+import com.twitter.entity.Story;
+import com.twitter.service.StoryService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class StoryServiceImpl implements StoryService {
     @Override
     public List<Story> findAll() {

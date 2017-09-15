@@ -1,14 +1,14 @@
-package controller;
+package com.twitter.controller;
 
-import core.Hash;
-import dto.UserDTO;
-import requestDTO.UserRequestDTO;
+import com.twitter.core.Hash;
+import com.twitter.dto.UserDTO;
+import com.twitter.requestDTO.UserRequestDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import service.UserService;
-import service.impl.UserServiceImpl;
+import com.twitter.service.UserService;
+import com.twitter.service.impl.UserServiceImpl;
 
 import java.util.List;
 

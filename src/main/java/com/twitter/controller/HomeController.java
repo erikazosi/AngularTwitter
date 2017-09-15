@@ -1,20 +1,18 @@
-package controller;
+package com.twitter.controller;
 
 
-import dto.LoginDTO;
-import entity.User;
+import com.twitter.dto.LoginDTO;
+import com.twitter.entity.User;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import service.UserService;
-import utils.UserUtils;
+import com.twitter.service.UserService;
+import com.twitter.utils.UserUtils;
 
 
 @RestController
 @RequestMapping("/")
-
-
 public class HomeController {
     private final UserService userService;
 

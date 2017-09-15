@@ -1,8 +1,8 @@
-package utils;
+package com.twitter.utils;
 
-import dto.LoginDTO;
-import dto.UserDTO;
-import entity.User;
+import com.twitter.dto.LoginDTO;
+import com.twitter.dto.UserDTO;
+import com.twitter.entity.User;
 
 public class UserUtils {
     public static UserDTO convertRequestToDTO(User user) {
