@@ -2,7 +2,12 @@ package com.twitter.controller;
 
 import com.twitter.core.Hash;
 import com.twitter.dto.UserDTO;
+import com.twitter.entity.User;
+import com.twitter.requestDTO.LoginRequestDTO;
+import com.twitter.requestDTO.UserIdRequestDTO;
 import com.twitter.requestDTO.UserRequestDTO;
+import com.twitter.responseDTO.LoginSuccessDTO;
+import com.twitter.responseDTO.UserResponseDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -23,15 +28,14 @@ public class UserController {
         this.userService = userServiceImpl;
     }
 
-    @GetMapping(value = "/loginSuccess")
-    public ResponseEntity<String> loginSuccess(Model model) {
+    @GetMapping("/loginSuccess/{userId}")
+    public ResponseEntity<UserDTO> loginSuccess(@PathVariable("userId") Long userId) {
 
 
-        List li = userService.findAll();
-      //  List<UserDTO> userDTO = UserUtils.convertToDashboardDTO(li);
-       // model.addAttribute("list", userDTO);
+      UserDTO userDTO= userService.findById(userId);
 
-        return new ResponseEntity<String>("/dashboard", HttpStatus.OK);
+
+        return new ResponseEntity<UserDTO>(userDTO, HttpStatus.OK);
     }
 
 //    @GetMapping(value = "/signup")
@@ -42,12 +46,30 @@ public class UserController {
 //    }
 
     @PostMapping(value = "/signup")
-    public  ResponseEntity<Void> processRegistration(@RequestBody UserRequestDTO userRequestDTO) {
+    public ResponseEntity<Void> processRegistration(@RequestBody UserRequestDTO userRequestDTO) {
 
-       // UserDTO userDTO = UserUtils.convertRequestToDTO(users);
+        System.out.println(userRequestDTO.getPassword());
+
+        // UserDTO userDTO = UserUtils.convertRequestToDTO(users);
         UserRequestDTO usersDTO = Hash.hashPassword(userRequestDTO);
-      //  userService.addUser(usersDTO);
+        userService.addUser(usersDTO);
         return new ResponseEntity<Void>(HttpStatus.OK);
+
+
+    }
+
+    @PostMapping(value = "/login")
+    public ResponseEntity<LoginSuccessDTO> processLogin(@RequestBody LoginRequestDTO loginRequestDTO) {
+
+        LoginSuccessDTO loginSuccessDTO = new LoginSuccessDTO();
+        User user = userService.verifyUser(loginRequestDTO);
+        if (user!=null) {
+
+           loginSuccessDTO.setId(user.getId());
+
+            return new ResponseEntity<LoginSuccessDTO>(loginSuccessDTO, HttpStatus.OK);
+        } else
+            return new ResponseEntity<LoginSuccessDTO>(HttpStatus.FORBIDDEN);
 
 
     }

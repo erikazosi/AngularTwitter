@@ -3,6 +3,7 @@ package com.twitter.utils;
 import com.twitter.dto.LoginDTO;
 import com.twitter.dto.UserDTO;
 import com.twitter.entity.User;
+import com.twitter.requestDTO.UserRequestDTO;
 
 public class UserUtils {
     public static UserDTO convertRequestToDTO(User user) {
@@ -36,7 +37,7 @@ public class UserUtils {
         return userDTO;
     }
 
-    public static User convertDTOToEntity(UserDTO userDTO) {
+    public static User convertDTOToEntity(UserRequestDTO userDTO) {
         User  user= new User();
         user.setId(userDTO.getId());
         user.setFirstName(userDTO.getFirstName());

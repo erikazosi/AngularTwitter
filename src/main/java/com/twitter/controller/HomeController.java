@@ -3,6 +3,7 @@ package com.twitter.controller;
 
 import com.twitter.dto.LoginDTO;
 import com.twitter.entity.User;
+import com.twitter.requestDTO.UserRequestDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.ui.Model;
@@ -28,17 +29,5 @@ public class HomeController {
         return new ResponseEntity<String>("home", HttpStatus.OK);
     }
 
-    @PostMapping(value = "/home")
-    public ResponseEntity<String> processLogin(@RequestBody User user) {
-        LoginDTO loginDTO = UserUtils.convertLoginRequestToDTO(user);
-        if (userService.verifyUser(loginDTO)) {
-            return new ResponseEntity<String>("verified", HttpStatus.OK);
-        }
-
-else
-        return new ResponseEntity<String>("/home", HttpStatus.OK);
-
-
-    }
 
 }

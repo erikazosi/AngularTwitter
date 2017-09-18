@@ -1,4 +1,11 @@
 package com.twitter.responseDTO;
 
-public class loginSuccessDTO {
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+public class LoginSuccessDTO {
+    long id;
+    String token;
 }

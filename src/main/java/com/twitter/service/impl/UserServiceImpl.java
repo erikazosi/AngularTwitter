@@ -5,6 +5,8 @@ import com.twitter.dao.UserDao;
 import com.twitter.dto.LoginDTO;
 import com.twitter.dto.UserDTO;
 import com.twitter.entity.User;
+import com.twitter.requestDTO.LoginRequestDTO;
+import com.twitter.requestDTO.UserRequestDTO;
 import com.twitter.service.UserService;
 import com.twitter.utils.UserUtils;
 import org.springframework.stereotype.Service;
@@ -15,24 +17,28 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
 
 
-
     private final UserDao userDao;
 
     public UserServiceImpl(UserDao userDao) {
         this.userDao = userDao;
     }
-    public boolean verifyUser(LoginDTO loginDTO) {
-        UserDTO userDTO=userDao.findById(loginDTO.getUserId());
 
-        boolean hashing=Hash.unhashPassword(userDTO, loginDTO);
+    public User verifyUser(LoginRequestDTO loginRequestDTO) {
+        User user = userDao.findByUsername(loginRequestDTO.getUsername());
 
-        return hashing;
+
+        boolean hashing = Hash.unhashPassword(loginRequestDTO.getPassword(), user.getPassword());
+
+        if (hashing) {
+            return user;
+        } else
+            return null;
     }
 
-    public void addUser(UserDTO userDTO) {
+    public void addUser(UserRequestDTO userRequestDTO) {
 
-        User user = UserUtils.convertDTOToEntity(userDTO);
-       userDao.addUser(user);
+        User user = UserUtils.convertDTOToEntity(userRequestDTO);
+        userDao.addUser(user);
     }
 
     public List<User> findAll() {
@@ -41,7 +47,9 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public UserDTO findById(long id) {
-        return null;
+        UserDTO userDTO = userDao.findById(id);
+        return userDTO;
+
     }
 
     public UserDTO findById(int id) {

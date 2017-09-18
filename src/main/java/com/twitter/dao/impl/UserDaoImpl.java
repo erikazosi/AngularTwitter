@@ -43,4 +43,14 @@ public class UserDaoImpl implements UserDao {
 
     }
 
+    @Override
+    public User findByUsername(String username) {
+
+        User user = userRepo.findByUsername(username);
+
+
+        return user;
+    }
+
+
 }

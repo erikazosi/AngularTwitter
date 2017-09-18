@@ -1,7 +1,7 @@
 angular.module('angularTwitter')
-.controller('SignupController', ['$location',SignupController]);
+.controller('SignupController', ['SignupService', SignupController]);
 
-function SignupController($location) {
+function SignupController(SignupService) {
 
     var vm=this;
 
@@ -12,18 +12,27 @@ function SignupController($location) {
         password:'',
     };
 
-    vm.saveUser=saveUser;
+
+    // console.log(vm.userInfo);
+
+     vm.saveUser=saveUser;
 
     function saveUser() {
 
+
+        SignupService.saveNewUser(vm.userInfo);
         /*console.log(vm.userInfo);
         vm.userInfo.newParameter = "hello123";
         console.log(vm.userInfo);*/
 
-        var appBase = $location.absUrl().split("#!")[0];
+        //var appBase = $location.absUrl().split("#!")[0];
 
-        $http.post(appBase + "signup", vm.userInfo)
+       // $http.post(appBase + "signup", vm.userInfo);
+
 
     }
+
+
+
 
 }

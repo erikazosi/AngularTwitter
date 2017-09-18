@@ -1,16 +1,17 @@
 package com.twitter.service;
 
 
-import com.twitter.dto.LoginDTO;
 import com.twitter.dto.UserDTO;
 import com.twitter.entity.User;
+import com.twitter.requestDTO.LoginRequestDTO;
+import com.twitter.requestDTO.UserRequestDTO;
 
 import java.util.List;
 
 public interface UserService {
-    boolean verifyUser(LoginDTO loginDTO);
+    User verifyUser(LoginRequestDTO loginRequestDTO);
 
-    void addUser(UserDTO userDTO);
+    void addUser(UserRequestDTO userRequestDTO);
 
     List<User> findAll();
 
