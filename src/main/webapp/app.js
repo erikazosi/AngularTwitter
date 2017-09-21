@@ -28,5 +28,22 @@ angular.module('angularTwitter').config(function ($routeProvider) {
 
             templateUrl:'pages/dashboard/dashboard.jsp'
 
+        })
+
+        .when('/allUsers',{
+            controller:'AllUsersController as userControl',
+            templateUrl:'pages/allUsers/allUsers.jsp'
+
+        })
+
+        .when('/followers',{
+            templateUrl:'pages/followers/followers.jsp',
+            controller:'FollowerController as followerControl'
+
+
+        })
+        .when('/following',{
+            templateUrl:'pages/following/following.jsp',
+            controller:'FollowingController as followingControl'
         });
 });

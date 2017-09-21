@@ -28,6 +28,7 @@ function HttpService($http, $q, $localStorage, $location){
         },
 
         post: function (resourceURI, data) {
+            console.log("http"+data);
             return $http.post(vm.url+resourceURI, data)
                 .then(function (resp) {
                     return resp.data;

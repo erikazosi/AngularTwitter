@@ -5,7 +5,6 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class LoginSuccessDTO {
-    long id;
-    String token;
+public class StoriesResponseDTO {
+    private String story;
 }

@@ -9,7 +9,20 @@ function DashboardService(HttpService) {
     return{
         loginSuccess: function (userId) {
             return HttpService.get(vm.resourceURI+userId);
+        },
+
+        saveStory:function(data) {
+            vm.resource = 'addStory';
+            console.log(data);
+            return HttpService.post(vm.resource, data);
+        },
+
+        displayStory:function(userId) {
+
+            vm.resource = 'displayStory/';
+            return HttpService.get(vm.resource+userId);
         }
+
     }
 
 }

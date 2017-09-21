@@ -16,4 +16,6 @@ public class Follow {
     private long id;
     private long followingId;
     private long followerId;
+    private String followingName;
+
 }

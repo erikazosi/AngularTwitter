@@ -4,13 +4,11 @@ import com.twitter.core.Hash;
 import com.twitter.dto.UserDTO;
 import com.twitter.entity.User;
 import com.twitter.requestDTO.LoginRequestDTO;
-import com.twitter.requestDTO.UserIdRequestDTO;
 import com.twitter.requestDTO.UserRequestDTO;
-import com.twitter.responseDTO.LoginSuccessDTO;
-import com.twitter.responseDTO.UserResponseDTO;
+import com.twitter.responseDTO.AllUsersRespDTO;
+import com.twitter.responseDTO.LoginSuccessRespDTO;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import com.twitter.service.UserService;
 import com.twitter.service.impl.UserServiceImpl;
@@ -32,7 +30,7 @@ public class UserController {
     public ResponseEntity<UserDTO> loginSuccess(@PathVariable("userId") Long userId) {
 
 
-      UserDTO userDTO= userService.findById(userId);
+        UserDTO userDTO = userService.findById(userId);
 
 
         return new ResponseEntity<UserDTO>(userDTO, HttpStatus.OK);
@@ -59,19 +57,26 @@ public class UserController {
     }
 
     @PostMapping(value = "/login")
-    public ResponseEntity<LoginSuccessDTO> processLogin(@RequestBody LoginRequestDTO loginRequestDTO) {
+    public ResponseEntity<LoginSuccessRespDTO> processLogin(@RequestBody LoginRequestDTO loginRequestDTO) {
 
-        LoginSuccessDTO loginSuccessDTO = new LoginSuccessDTO();
+        LoginSuccessRespDTO loginSuccessDTO = new LoginSuccessRespDTO();
         User user = userService.verifyUser(loginRequestDTO);
-        if (user!=null) {
+        if (user != null) {
 
-           loginSuccessDTO.setId(user.getId());
+            loginSuccessDTO.setId(user.getId());
 
-            return new ResponseEntity<LoginSuccessDTO>(loginSuccessDTO, HttpStatus.OK);
+            return new ResponseEntity<LoginSuccessRespDTO>(loginSuccessDTO, HttpStatus.OK);
         } else
-            return new ResponseEntity<LoginSuccessDTO>(HttpStatus.FORBIDDEN);
+            return new ResponseEntity<LoginSuccessRespDTO>(HttpStatus.FORBIDDEN);
 
 
     }
+
+    @GetMapping("/allUsers/{userId}")
+    public ResponseEntity<List<AllUsersRespDTO>> displayAllUsers(@PathVariable("userId") Long id) {
+       List<AllUsersRespDTO> allUsersRespDTOS= userService.findAllWithoutCurrentUser(id);
+        return new ResponseEntity<List<AllUsersRespDTO>>(allUsersRespDTOS, HttpStatus.OK);
+    }
+
 
 }

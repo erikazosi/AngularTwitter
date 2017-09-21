@@ -2,11 +2,11 @@ package com.twitter.service.impl;
 
 import com.twitter.core.Hash;
 import com.twitter.dao.UserDao;
-import com.twitter.dto.LoginDTO;
-import com.twitter.dto.UserDTO;
+import com.twitter.dto.*;
 import com.twitter.entity.User;
 import com.twitter.requestDTO.LoginRequestDTO;
 import com.twitter.requestDTO.UserRequestDTO;
+import com.twitter.responseDTO.AllUsersRespDTO;
 import com.twitter.service.UserService;
 import com.twitter.utils.UserUtils;
 import org.springframework.stereotype.Service;
@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
+
 public class UserServiceImpl implements UserService {
 
 
@@ -62,6 +63,35 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public void deleteUserById(long id) {
+
+    }
+
+    @Override
+    public List<AllUsersRespDTO> findAllWithoutCurrentUser(Long id) {
+        List<AllUsersRespDTO> allUsersRespDTOS = userDao.findAllWithoutCurrentUser(id);
+        return allUsersRespDTOS;
+    }
+
+    @Override
+    public void followNewUser(FollowUserReqDTO followUserReqDTO) {
+        userDao.followNewUser(followUserReqDTO);
+    }
+
+    @Override
+    public List<FollowUserResDTO> followingUsersList(Long id) {
+        List<FollowUserResDTO> followUserResDTOList = userDao.followingUsersList(id);
+        return followUserResDTOList;
+    }
+
+    @Override
+    public List<FollowUserResDTO> followersList(Long id) {
+        List<FollowUserResDTO> followUserResDTOList = userDao.followersList(id);
+        return followUserResDTOList;
+    }
+
+    @Override
+    public void unfollowUser(UnfollowUserReqDTO unfollowUserReqDTO) {
+        userDao.unfollowUser(unfollowUserReqDTO);
 
     }
 

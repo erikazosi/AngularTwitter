@@ -16,6 +16,14 @@
     <script src="./pages/commons/storageService.js"></script>
     <script src="./pages/dashboard/controller/dashboardController.js"></script>
     <script src="./pages/dashboard/service/dashboardService.js"></script>
+    <script src="./pages/allUsers/controller/allUsersController.js"></script>
+    <script src="./pages/allUsers/service/allUsersService.js"></script>
+    <script src="./pages/following/controller/followingController.js"></script>
+    <script src="./pages/following/service/followingService.js"></script>
+
+    <script src="./pages/followers/service/followerService.js"></script>
+    <SCRIPT src="./pages/followers/controller/followerController.js"></SCRIPT>
+
 
 
 
